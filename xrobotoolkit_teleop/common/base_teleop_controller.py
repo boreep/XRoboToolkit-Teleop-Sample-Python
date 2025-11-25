@@ -28,7 +28,7 @@ class BaseTeleopController(abc.ABC):
         self,
         robot_urdf_path: str,
         manipulator_config: Dict[str, Dict[str, Any]],
-        floating_base: bool,
+        floating_base: bool, #基座是否可动W
         R_headset_world: np.ndarray,
         scale_factor: float,
         q_init: np.ndarray,
