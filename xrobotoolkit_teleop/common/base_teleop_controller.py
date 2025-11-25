@@ -212,7 +212,7 @@ class BaseTeleopController(abc.ABC):
                     target_pose = tf.quaternion_matrix(target_quat)
                     target_pose[:3, 3] = target_xyz
                     self.effector_task[src_name].T_world_frame = target_pose
-            else:
+            else: #用户松开扳机后，清除参考位姿。下次再按住时，会以当前机器人状态为新起点，避免突然跳变。
                 if self.ref_ee_xyz[src_name] is not None:
                     print(f"{src_name} is deactivated.")
                     self.ref_ee_xyz[src_name] = None
