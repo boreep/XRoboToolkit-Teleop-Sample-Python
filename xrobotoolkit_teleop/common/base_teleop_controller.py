@@ -28,14 +28,14 @@ class BaseTeleopController(abc.ABC):
         self,
         robot_urdf_path: str,
         manipulator_config: Dict[str, Dict[str, Any]],
-        floating_base: bool, #基座是否可动W
+        floating_base: bool, #基座是否可动
         R_headset_world: np.ndarray,
         scale_factor: float,
-        q_init: np.ndarray,
-        dt: float,
+        q_init: np.ndarray,#初始关节状态
+        dt: float,//时间步长
         enable_log_data: bool = False,
         log_dir: str = "logs",
-        log_freq: float = 50,
+        log_freq: float = 50,//记录频率
     ):
         self.robot_urdf_path = robot_urdf_path
         self.manipulator_config = manipulator_config
