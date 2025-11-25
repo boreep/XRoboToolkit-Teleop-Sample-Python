@@ -79,7 +79,7 @@ class BaseTeleopController(abc.ABC):
         self._robot_setup()
         self._placo_setup()
 
-    def _process_xr_pose(self, xr_pose, src_name):
+    def _process_xr_pose(self, xr_pose, src_name): #将VR控制器绝对位置转换为机器人相对位置增量（考虑比例）
         """Process the current XR controller pose."""
         # Get position and orientation
         controller_xyz = np.array([xr_pose[0], xr_pose[1], xr_pose[2]])
